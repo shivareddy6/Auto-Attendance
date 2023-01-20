@@ -6,6 +6,7 @@
 
 .main-container {
   flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .nav {
@@ -32,7 +33,7 @@
 .sidenav {
   width: 250px;
   transition: width 0.3s ease-in-out;
-  height: 100vh;
+  height: 100%;
   background-color: #383b4e;
   /* padding-top: 28px; */
 }
@@ -103,15 +104,14 @@
   /* overflow: scroll; */
   /* width: 80vw; */
   /* background-color: blue; */
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .dashboard-card {
   max-width: 25vw;
   min-width: 230px;
-  height: 50%;
   width: 282.3px;
-  height: 256.4px;
+  height: 235px;
   background: #626ed4;
   border-radius: 4px;
   color: white;
@@ -125,12 +125,13 @@
   height: 58px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
+  font-size: 20px;
 }
 
 .dashboard-card--header {
   display: flex;
   /* background-color: blue; */
-  padding: 15px 0px 5px 25px;
+  padding: 15px 0px 0px 25px;
   gap: 10px;
 }
 .dashboard-card--title > * {
@@ -160,11 +161,33 @@
 .dashboard-card--body {
   padding-top: 5px;
   padding-right: 55%;
-  height: 80px;
+  height: 70px;
 }
 .dashboard-card--footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 10px;
+}
+
+.dashboard--graph > * {
+  /* display: flex; */
+  /* width: 90%; */
+  /* height: 50%; */
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.dashboard--graph--text {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  padding: 0;
+  margin: 3px 0px 10px 0px;
+  color: #5b626b;
+}
+.dashboard--apexchart {
+  position: relative;
 }

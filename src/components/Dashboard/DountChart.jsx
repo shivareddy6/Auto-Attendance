@@ -20,15 +20,13 @@ export const options = {
   pieHole: 0.8,
 };
 
-export default function DonutChart() {
-  const handleMouseOver = (e, ind) => {
-    console.log("mouse over on ", ind);
-  }
+export default function DonutChart({present=15, absent=10}) {
+  console.log(present, absent);
   return (
     <PieChart
       data={[
-        { title: "Absent", value: 10, color: "rgba(255, 255, 255, 0.15)" },
-        { title: "Present", value: 15, color: "white" }
+        { title: "Absent", value: absent, color: "rgba(255, 255, 255, 0.15)" },
+        { title: "Present", value: present, color: "white" },
       ]}
       lineWidth={25}
       // onMouseOver={(_, ind) => handleMouseOver(_, ind)}

@@ -23,25 +23,19 @@ export default function Sidenav() {
     {
       id: 1,
       icon: <TravelExploreIcon />,
-      text: "Explore",
-      link: "explore",
+      text: "Students List",
+      link: "students",
     },
     {
       id: 2,
       icon: <BarChartIcon />,
-      text: "Statistics",
-      link: "statistics",
-    },
-    {
-      id: 3,
-      icon: <SettingsIcon />,
-      text: "Settings",
-      link: "settings",
+      text: "Mark Attendance",
+      link: "mark-attendance",
     },
   ];
   return (
     <div className={open ? "sidenav" : "sidenavClosed"}>
-    <h3 className={`logo--name ${open ? "logo--open" : "logo-close"}`}>{open ? "NETRA" : "N"}</h3>
+    <h3 className={`logo--name ${open ? "logo--open" : "logo-close"}`}>{open ? "DRONA" : "D"}</h3>
       <button className={"menuBtn"} onClick={toggleOpen}>
         {open ? (
           <KeyboardDoubleArrowLeftIcon />
@@ -53,7 +47,7 @@ export default function Sidenav() {
         return (
           <NavLink key={item.id} className={"sideitem"} to={item.link}>
             {item.icon}
-            <span className={"linkText"}>{item.text}</span>
+            <span className={"linkText"}>{open && item.text}</span>
           </NavLink>
         );
       })}

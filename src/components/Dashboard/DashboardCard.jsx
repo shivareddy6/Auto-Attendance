@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import fontawesome from "@fortawesome/fontawesome";
 
-fontawesome.library.add(faUser);
+// fontawesome.library.add(faUser);
 
 const DashboardCard = ({
   header = { icon: <SchoolIcon />, title: "Total Students", text: 5 },
@@ -18,21 +18,6 @@ const DashboardCard = ({
   ),
   link = "",
 }) => {
-  // console.log(header, body);
-  // const data = {
-  //   header: {
-  //     icon: <SchoolIcon />,
-  //     title: "Total Students",
-  //     text: 5,
-  //   },
-  //   // body: <DonutChart />,
-  //   body: (
-  //     <FontAwesomeIcon
-  //       icon={faUser}
-  //       style={{ width: "100%", minHeight: "80%" }}
-  //     />
-  //   ),
-  // };
   return (
     <div className="dashboard-card">
       <FontAwesomeIcon icon="fa-regular fa-user" />

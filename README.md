@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+## Project Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Auto Attendance System
+The project is an AI-based face recognition system that detects, reognizes students and updates their attendance in the firebase database.
 
-## Available Scripts
+### Repository Info
+This repository is the front-end part of the above mentioned project. I have used <b>React</b> for the front-end part and <b>FireBase</b> for the database.
 
-In the project directory, you can run:
 
-### `npm start`
+## Project Screen Shots:
+#### Dashboard
+![image](https://user-images.githubusercontent.com/74174769/221340069-d803abde-34d3-42e4-abe7-ff835e794a84.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Students List
+![image](https://user-images.githubusercontent.com/74174769/221340093-29aa0b6b-be5d-4151-93a7-ec2272bc2d4d.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Marking Attendance
+![image](https://user-images.githubusercontent.com/74174769/221340441-5273ef83-f573-4f6a-9f70-1e5a42e2e2bf.png)
 
-### `npm test`
+## Installation and Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To setup and install Auto Attendance System follow the below steps:
+- Clone this project using the command:  
 
-### `npm run build`
+    ```$ git clone  https://github.com/shivareddy6/Auto-Attendance.git ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Sitch to the project folder by the below query:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```$ cd Auto-Attendance```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Run the below command to install dependencies:
 
-### `npm run eject`
+    ```$ npm i```
+    
+- Create and update your firebase config keys in src/firebase.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- To start the project, run the following command:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    ```npm start```

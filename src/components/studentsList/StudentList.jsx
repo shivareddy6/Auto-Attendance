@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getStudentData, removeStudentFromDB } from "../../utils/fireBaseUtils";
 import StudentAdd from "./StudentAdd";
 // import {StudentItem} from "./StudentItem"
-import './styles.css'
+import "./styles.css";
 export const StudentList = (props) => {
+  // console.log(props.Students)
+  let allStudents = [];
+  const [filteredStudents, setFilteredStudents] = useState([]);
+  const [search, setSearch] = useState("");
+  const [modal, setmodal] = useState(false);
+
+  useEffect(() => {
+    const loadData = async () => {
+      allStudents = await getStudentData();
+      // console.log(stuData);
+      setFilteredStudents(allStudents);
+    };
+    loadData();
+  }, []);
+  useEffect(() => {
+    const loadData = async () => {
+      allStudents = await getStudentData();
+      // console.log(stuData);
+      setFilteredStudents(allStudents);
+    };
+    loadData();
+  }, [modal]);
+  useEffect(() => {
+    if (search === "") {
+      setFilteredStudents(allStudents);
+    } else {
+      setFilteredStudents(() =>
+        allStudents.filter((student) => student.name.includes(search))
+      );
+    }
+  }, [search]);
+
+  const onDelete = async (stud) => {
+    await removeStudentFromDB(stud.id);
+    allStudents = await getStudentData();
+    // console.log(stuData);
+    setFilteredStudents(allStudents);
+  };
 
   return (
     <div className="container">
@@ -21,13 +60,19 @@ export const StudentList = (props) => {
                 <div class="row">
                   <div class="col-sm-12 col-md-12">
                     <div class="input-box">
-                      <StudentAdd addStudent={props.addStudent} />
+                      <StudentAdd
+                        addStudent={props.addStudent}
+                        modal={modal}
+                        setmodal={setmodal}
+                      />
                       <input
                         id="myInput"
                         type="text"
-                        placeholder="Search here..."
+                        placeholder="Search for name"
                         onkeyup="searchFun()"
                         style={{ right: "0%" }}
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                       />
                     </div>
                   </div>
@@ -49,9 +94,9 @@ export const StudentList = (props) => {
                         </tr>
                       </thead>
                       <tbody>
-                        {props.Students.length === 0
+                        {filteredStudents.length === 0
                           ? "No Students to display"
-                          : props.Students.map((stud) => {
+                          : filteredStudents.map((stud) => {
                               return (
                                 <>
                                   <tr>
@@ -62,7 +107,7 @@ export const StudentList = (props) => {
                                       <button
                                         href=""
                                         className="btn btn-sm btn-danger delete btn-flat"
-                                        onClick={() => props.onDelete(stud)}
+                                        onClick={() => onDelete(stud)}
                                       >
                                         Delete
                                       </button>

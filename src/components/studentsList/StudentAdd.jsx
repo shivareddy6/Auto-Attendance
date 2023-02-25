@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
 // import Popup from 'reactjs-popup';
-import axios, * as others from 'axios';
+import axios, * as others from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import { Modal, ModalHeader, Row, ModalBody, Col } from "reactstrap";
 import "./styles.css";
-var FormData = require('form-data')
+var FormData = require("form-data");
 
-export default function StudentAdd({ addStudent }) {
+export default function StudentAdd({ addStudent, modal, setmodal }) {
   // const [id,setid] = useState("")
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [file, setFile] = useState();
-
+  
   const submit = async (e) => {
     // e.preventDefault();
     if (!name || !email) {
@@ -21,24 +21,24 @@ export default function StudentAdd({ addStudent }) {
       await addStudent(name, email);
       var data = new FormData();
       const newFile = new File([file], `${name.replace(" ", "_")}.jpeg`);
-      data.append('file', newFile);
-      data.append('name', setName);
+      data.append("file", newFile);
+      data.append("name", setName);
 
       var config = {
-          method: 'post',
-          url: 'https://54a4-103-165-2-13.in.ngrok.io/new-student',
-          headers: { 
-            'content-type': 'multipart/form-data', 
-          },
-          data : data
+        method: "post",
+        url: "https://1208-103-165-2-13.in.ngrok.io/",
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+        data: data,
       };
       axios(config)
-      .then(function (response) {
+        .then(function (response) {
           console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
+        })
+        .catch(function (error) {
           console.log(error);
-      });
+        });
 
       setmodal(false);
       setName("");
@@ -46,12 +46,11 @@ export default function StudentAdd({ addStudent }) {
     }
   };
 
-  function handleChange(e){
+  function handleChange(e) {
     console.log(e.target.files);
     setFile(e.target.files[0]);
   }
 
-  const [modal, setmodal] = useState(false);
   return (
     <div>
       <Modal size="lg" isOpen={modal} toggle={() => setmodal(!modal)}>
@@ -96,8 +95,14 @@ export default function StudentAdd({ addStudent }) {
 
               <Col lg={12}>
                 <div className="mb-3">
-                    <label htmlFor="desc" class="form-label">Insert Image</label>
-                    <input type="file"  onChange={handleChange}/>
+                  <label htmlFor="desc" class="form-label">
+                    Insert Image
+                  </label>
+                  <input
+                    style={{ marginLeft: "5px" }}
+                    type="file"
+                    onChange={handleChange}
+                  />
                 </div>
               </Col>
             </Row>

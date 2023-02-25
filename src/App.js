@@ -62,7 +62,7 @@ function App() {
               />
             }
           />
-          <Route path="/settings" element={<Testing />} />
+          <Route path="/debug" element={<Testing />} />
         </Routes>
       </div>
     </div>
